@@ -14,7 +14,7 @@ public static int id = 1;
 public static Semaphore mutexArtista = new Semaphore(1); 
 public static Semaphore semaforoSedie = new Semaphore(4); 
 ```
-Le variabili `MIN_WAIT` e `MAX_WAIT` definiscono l'intervallo di tempo in millisecondi tra l'arrivo di un cliente e il successivo. La variabile nClienti rappresenta il numero casuale di clienti che arriveranno, con un massimo di 50. La variabile id viene utilizzata per assegnare un ID sequenziale a ogni cliente. I semafori `mutexArtista`(mutex) e `semaforoSedie`(semaforo a conteggio) vengono inizializzati con un valore iniziale rispettivamente di 1 e 4, questo al fine che l'artista esegua un ritratto alla volta e che le sedie totali disponibili siano 4.
+Le variabili `MIN_WAIT` e `MAX_WAIT` definiscono l'intervallo di tempo in millisecondi tra l'arrivo di un cliente e il successivo. La variabile `nClienti` rappresenta il numero casuale di clienti che arriveranno, con un massimo di 50. La variabile `id` viene utilizzata per assegnare un ID sequenziale a ogni cliente. I semafori `mutexArtista`(mutex) e `semaforoSedie`(semaforo a conteggio) vengono inizializzati con un valore iniziale rispettivamente di 1 e 4, questo al fine che l'artista esegua un ritratto alla volta e che le sedie totali disponibili siano 4.
 
 ### Creazione dei clienti
 ```java
