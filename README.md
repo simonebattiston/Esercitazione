@@ -69,7 +69,10 @@ public class Cliente extends Thread {
 
 La classe `Cliente` deriva dalla classe `Thread`, ciò porta al fatto che viene eseguito l'Override del metodo `run()` per definire le operazioni eseguite dal thread del cliente. Ogni cliente ha un ID assegnato nel costruttore.
 
-All'interno del metodo `run()`, il cliente tenta di acquisire `semaforoSedie` utilizzando la primitiva```java tryAcquire(5, TimeUnit.SECONDS)```. 
+All'interno del metodo `run()`, il cliente tenta di acquisire `semaforoSedie` utilizzando la primitiva 
+```java 
+tryAcquire(5, TimeUnit.SECONDS)
+```
 Se riesce ad acquisirlo entro 5 secondi, il cliente potrà sedersi ed attendere, dato che l'artista deve prima liberarsi per potersi occupare del thread corrente. Successivamente, quindi,  viene acquisito anche `mutexArtista` utilizzando la medesima primitiva `acquire()`. Viene quindi eseguito il ritratto simulando un intervallo di tempo di sleep tra 5 e 10 secondi. Dopo aver completato il ritratto, i semafori `mutexArtista` e `semaforoSedie` vengono rilasciati, consentendo rispettivamente all'artista di occuparsi di raffigurare altri clienti e ai clienti di potersi sedere, dunque, sulla sedia appena liberata.
 
 Se il cliente non riesce, invece, a ottenere una sedia entro 5 secondi, viene visualizzato un messaggio indicando che ha aspettato troppo e rinuncia a farsi fare il ritratto.
