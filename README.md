@@ -4,7 +4,7 @@ In questo esercizio la sincronizzazione avviene grazie ai semafori, uno a conteg
 Dato l'utilizzo, grazie a quest'ultimo della mutua esclusione per l’accesso alle risorse condivise tra i processi in gioco, si riesce a scongiurare il verificarsi dello stallo (deadlock)
 
 ## Classe main
-```
+```java
 public static int MIN_WAIT = 1000; 
 public static int MAX_WAIT = 3000; 
 static Random rand = new Random();
@@ -17,7 +17,7 @@ public static Semaphore semaforoSedie = new Semaphore(4);
 Le variabili `MIN_WAIT` e `MAX_WAIT` definiscono l'intervallo di tempo in millisecondi tra l'arrivo di un cliente e il successivo. La variabile nClienti rappresenta il numero casuale di clienti che arriveranno, con un massimo di 50. La variabile id viene utilizzata per assegnare un ID sequenziale a ogni cliente. I semafori `mutexArtista`(mutex) e `semaforoSedie`(semaforo a conteggio) vengono inizializzati con un valore iniziale rispettivamente di 1 e 4, questo al fine che l'artista esegua un ritratto alla volta e che le sedie totali disponibili siano 4.
 
 ### Creazione dei clienti
-```
+```java
 for (int i = 0; i < nClienti; i++) {
     Cliente cliente = new Cliente(id++);
     cliente.start();
@@ -33,7 +33,7 @@ for (int i = 0; i < nClienti; i++) {
 Viene eseguito un ciclo for per creare e avviare i thread dei clienti. Ad ogni cliente viene assegnato un ID sequenziale utilizzando la variabile `id`. Successivamente, il thread del cliente viene avviato e viene visualizzato un messaggio di attesa. Ecco che infine il thread va in "sleep" per un tempo compreso tra 1 e 3 secondi prima di fare in modo che un altro cliente sia interessato a farsi ritrarre.
 
 ## Classe Cliente
-```
+```java
 public class Cliente extends Thread {
     public int id;
 
